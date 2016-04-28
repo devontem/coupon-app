@@ -18,18 +18,28 @@ angular.module('app', ['ui.router'])
 		})
 }])
 
-.controller('MainController', function($scope, Coupon){
+.controller('MainController', function($scope, $location, Coupon){
 
-	// $scope.coupons = [1,2,3,4,5];
-	Coupon.getApiCoupons().then(function(data){
-		$scope.couponApi = data;
-		console.log(data)
-	});
+	$scope.getCoupons = function(){
+		Coupon.getApiCoupons().then(function(data){
+			$scope.couponApi = data;
+		});
 
-	Coupon.getUserCoupons().then(function(data){
-		$scope.userCoupons = data;
-	})
-	$scope.form = {};
+		Coupon.getUserCoupons().then(function(data){
+			$scope.userCoupons = data;
+			console.log(data);
+		})
+	}
+
+	$scope.getCoupons();
+
+	$scope.createCoupon = function(data){
+		Coupon.createCoupon(data).then(function(data){
+			$scope.form = {};
+			$location.path('/');
+			$scope.getCoupons();
+		})
+	}
 
 })
 
@@ -44,11 +54,18 @@ angular.module('app', ['ui.router'])
 	var getApiCoupons = function(){
 		return $http.get('/api/couponapi').then(function(data){
 			return data.data
+		});
+	}
+
+	var createCoupon = function(data){
+		return $http.post('/api/coupons', data).then(function(){
+
 		})
 	}
 
 	return {
 		getUserCoupons: getUserCoupons,
-		getApiCoupons: getApiCoupons
+		getApiCoupons: getApiCoupons,
+		createCoupon: createCoupon
 	}
 });

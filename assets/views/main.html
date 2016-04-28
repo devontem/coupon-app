@@ -2,20 +2,21 @@
 	<div class="row">
 
 		<div ng-repeat='coupon in userCoupons' class="col s6 m4">
-      <div class="card-panel teal center">
+      <div style="height: 300px!important;" class="card-panel blue darken-2 center">
         <p class="white-text">
-        <h5 class="center white-text" style="overflow:hidden; height:110px">{{coupon.dealDiscountPercent ? coupon.dealDiscountPercent +'% off' : ''}} {{coupon.dealTitle}}</h5>
+        <h5 class="center white-text" style="overflow:hidden; max-height:110px">{{coupon.title}}</h5>
         <span>
-        	Expires on {{coupon.expirationDate}}
-        	<a ng-href="{{coupon.URL}}" class="red waves-effect waves-light btn">Details</a>
+        	<p>{{coupon.description}}</p>
+        	<p ng-if="coupon.expiration">Expires on {{coupon.expiration}}</p>
+        	<a class="red waves-effect waves-light btn">CODE: {{coupon.code}}</a>
         </span>
         </p>
-        <p class="chip center" style="display:block">Provided by 8Coupons</p>
+        <p class="chip center" style="display:block">User Submitted</p>
       </div>
     </div>
 
 		<div ng-repeat='coupon in couponApi' class="col s6 m4">
-      <div class="card-panel teal center">
+      <div style="height: 300px!important;" class="card-panel teal center">
         <p class="white-text">
         <h5 class="center white-text" style="overflow:hidden; height:110px">{{coupon.dealDiscountPercent ? coupon.dealDiscountPercent +'% off' : ''}} {{coupon.dealTitle}}</h5>
         <span>

@@ -1,1 +1,32 @@
-hiiii
+<div class="container">
+  <div class="row">
+  <div style="display:inline-block">
+  	<a href="/#/" class="waves-effect waves-light btn left blue">Go Back to Deals!</a>
+  </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <input ng-model="form.title" id="title" type="text" class="validate">
+          <label for="title">Title</label>
+        </div>
+        <div class="input-field col s6">
+          <input ng-model="form.code" id="code" type="text" class="validate">
+          <label for="code">Code</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input ng-model="form.description" id="description" type="password" class="validate">
+          <label for="description">Description</label>
+        </div>
+      </div>
+      <!-- <div class="row">
+        <div class="input-field col s12">
+          <input id="email" type="email" class="validate">
+          <label for="email">Email</label>
+        </div>
+      </div> -->
+      <a ng-click="createCoupon(form)" class="waves-effect waves-light btn right">Submit Deal!</a>
+
+  </div>
+
+</div>
