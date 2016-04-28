@@ -2,11 +2,15 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Coupon_model extends CI_Model(){
+class Coupon_model extends CI_Model {
 	
 	// constructing parent class
 	function __construct(){
 		parent::__construct();
+	}
+
+	public function create($data){
+		$this->db->insert('coupons', $data);
 	}
 
 	public function get_all(){
@@ -35,4 +39,5 @@ class Coupon_model extends CI_Model(){
 		$this->db->where('id', $id);
 		$this->db->update('coupons', array('status' => 0));
 	}
+
 }
