@@ -8,10 +8,23 @@ angular.module('app', ['ui.router'])
 	$stateProvider
 		.state('home', {
 			url: '/',
-			template: 'assets/views/main.html'
+			templateUrl: 'assets/views/main.html',
+			controller: 'MainController'
 		})
 		.state('add', {
 			url: '/new',
-			template: 'assets/views/new.html'
+			templateUrl: 'assets/views/new.html',
+			controller: 'MainController'
 		})
-}]);
+}])
+
+.controller('MainController', function($scope, Coupon){
+
+	$scope.coupons = [1,2,3,4,5];
+	$scope.form = {};
+
+})
+
+.factory('Coupon', function($scope){
+
+});

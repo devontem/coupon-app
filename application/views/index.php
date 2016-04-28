@@ -18,7 +18,14 @@
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-        <header ng-include="partials/nav.html"></header>
+         <nav>
+			    <div class="nav-wrapper">
+			      <a href="#" class="brand-logo center">Coupon-Galore!</a>
+			      <ul id="nav-mobile" class="right hide-on-med-and-down">
+			        <li><a href="sass.html">Create a new coupon!</a></li>
+			      </ul>
+			    </div>
+			  </nav>
         <section ui-view></section>
 
 
