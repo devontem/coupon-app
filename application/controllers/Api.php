@@ -2,7 +2,8 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 require APPPATH.'/libraries/REST_Controller.php';
-require_once APPPATH.'/libraries/Unirest/Unirest.php';
+require APPPATH.'/config/api_keys.php';
+require APPPATH.'/libraries/Unirest/Unirest.php';
 
 class Api extends REST_Controller {
 
@@ -65,14 +66,11 @@ class Api extends REST_Controller {
 
   public function couponapi_get(){
 
-  	$response = Unirest\Request::get("https://udayogra-deal-and-coupons-v1.p.mashape.com/dl?action=getmerchants&submittype=deals",
-  array(
-    "X-Mashape-Key" => "0px1qep5qfmsh9Mo6vAQxg6R5afBp1citx5jsnZsAt9nis6tI4",
-    "Accept" => "application/json"
-  )
-);
+  	$key = API_keys::$coupon_api_key;
+  	$response = Unirest\Request::get("http://api.8coupons.com/v1/getrealtimeproductdeals?key=". $key, array("Accept" => "application/json" )
+  	);
 
-		$this->response($response);
+		$this->response($response->body);
 
   }
 
