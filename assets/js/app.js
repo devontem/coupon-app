@@ -22,8 +22,12 @@ angular.module('app', ['ui.router'])
 
 	// $scope.coupons = [1,2,3,4,5];
 	Coupon.getApiCoupons().then(function(data){
-		$scope.coupons = data;
+		$scope.couponApi = data;
 		console.log(data)
+	});
+
+	Coupon.getUserCoupons().then(function(data){
+		$scope.userCoupons = data;
 	})
 	$scope.form = {};
 

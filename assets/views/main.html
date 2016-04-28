@@ -1,10 +1,23 @@
 <div class='container'>
 	<div class="row">
 
-		<div ng-repeat='coupon in coupons' class="col s6 m4">
+		<div ng-repeat='coupon in userCoupons' class="col s6 m4">
       <div class="card-panel teal center">
         <p class="white-text">
-        <h5 class="center white-text">{{coupon.dealDiscountPercent ? coupon.dealDiscountPercent +'% off' : ''}} {{coupon.dealTitle}}</h5>
+        <h5 class="center white-text" style="overflow:hidden; height:110px">{{coupon.dealDiscountPercent ? coupon.dealDiscountPercent +'% off' : ''}} {{coupon.dealTitle}}</h5>
+        <span>
+        	Expires on {{coupon.expirationDate}}
+        	<a ng-href="{{coupon.URL}}" class="red waves-effect waves-light btn">Details</a>
+        </span>
+        </p>
+        <p class="chip center" style="display:block">Provided by 8Coupons</p>
+      </div>
+    </div>
+
+		<div ng-repeat='coupon in couponApi' class="col s6 m4">
+      <div class="card-panel teal center">
+        <p class="white-text">
+        <h5 class="center white-text" style="overflow:hidden; height:110px">{{coupon.dealDiscountPercent ? coupon.dealDiscountPercent +'% off' : ''}} {{coupon.dealTitle}}</h5>
         <span>
         	Expires on {{coupon.expirationDate}}
         	<a ng-href="{{coupon.URL}}" class="red waves-effect waves-light btn">Details</a>
